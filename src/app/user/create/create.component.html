@@ -1,0 +1,12 @@
+<div class="card">
+  <h5 class="card-header">Create a user</h5>
+  <div class="card-body">
+    <form [formGroup]="_formGroup" (ngSubmit)="saveUser()">
+      <div class="form-group">
+        <label for="fullName" class="col-form-label">Full Name</label>
+        <input formControlName="fullName" id="fullName" type="text" class="form-control">
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
