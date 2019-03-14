@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-header">Sale</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="inp_sp" class="col-form-label">Search products</label>
+              <ng-autocomplete
+                id="inp_sp"
+                class="form-control"
+                [searchKeyword]="keyword"
+                [data]="saleItems"
+                [itemTemplate]="itemTemplate"
+                (selected)="onSaleItemSelected($event)"
+              >
+              </ng-autocomplete>
+              <ng-template #itemTemplate let-item style="display: inline-block">
+                <img src="https://smashgg.imgix.net/images/tournament/91478/image-aa15fb6f31c5199cdfce80dcf5438c0e.jpg?auto=compress,format&w=280&h=280&fit=crop"
+                height="50px"
+                width="50px"/>
+                <a [innerHTML]="item.name"></a>
+              </ng-template>
+              <!--<input id="inp_sp" type="text" class="form-control form-control-lg"/>-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <ng-template ngFor let-cartItem [ngForOf]="cartItems" let-i="index" >
+                  <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{cartItem.name}}</td>
+                    <td>{{cartItem.price}}</td>
+                    <td><input class="form-control-sm" [(ngModel)]="cartItem.quantity"></td>
+                    <td>{{cartItem.price * cartItem.quantity}}</td>
+                    <th><button class="btn btn-danger active" (click)="removeCartItem(cartItem)">X</button> </th>
+                  </tr>
+                </ng-template>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">Payment</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>Total Bill</label>
+          <input id="inp_totalBill" type="text" value="{{getTotalBill()}}" class="form-control form-control-lg" disabled/>
+        </div>
+        <div class="form-group">
+          <label>Paid</label>
+          <input id="inp_paid" type="text" [(ngModel)]="paid" class="form-control form-control-lg"/>
+        </div>
+        <div class="form-group">
+          <label>Balance</label>
+          <input id="inp_balance" type="text" [value]="(totalBill - paid)" class="form-control form-control-lg" disabled/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

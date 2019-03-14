@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HttpService} from '../../services/http.service';
 
 @Component({
   selector: 'app-create',
@@ -15,10 +16,11 @@ export class CreateComponent implements OnInit {
   };
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private httpService: HttpService
   ) {
     this._formGroup = this.formBuilder.group({
-      fullname: ['', Validators.required]
+      fullName: ['', Validators.required]
     });
   }
 
@@ -26,7 +28,14 @@ export class CreateComponent implements OnInit {
   }
 
   saveUser() {
-    console.log('YAAYYY');
+    this.httpService.addUser(this._formGroup.controls.fullName.value).subscribe(
+      (response) => {
+        alert(response);
+      },
+      (err) => {
+        alert(err);
+      }
+    );
   }
 
 }

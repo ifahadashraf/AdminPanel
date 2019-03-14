@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import {Route, RouterModule} from '@angular/router';
@@ -8,11 +9,17 @@ import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { ViewComponent } from './user/view/view.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { PosComponent } from './sales/pos/pos.component';
+import { SalesViewComponent } from './sales/sales-view/sales-view.component';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 const routes: Route[] = [
   {path: '', component: MainComponent},
-  {path: 'user/create', component: CreateComponent},
-  {path: 'user/view', component: ViewComponent}
+  {path: 'User/Create', component: CreateComponent},
+  {path: 'User/UsersView', component: ViewComponent},
+  {path: 'Sales/POS', component: PosComponent},
+  {path: 'Sales/SalesView', component: SalesViewComponent}
 ]
 
 @NgModule({
@@ -21,12 +28,17 @@ const routes: Route[] = [
     CreateComponent,
     HeaderComponent,
     MainComponent,
-    ViewComponent
+    ViewComponent,
+    PosComponent,
+    SalesViewComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

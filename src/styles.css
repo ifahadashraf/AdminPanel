@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.ng-autocomplete {
+  width: 100% !important;
+}
+
+.autocomplete-container {
+  z-index: 1 !important;
+}
+
+.autocomplete-container .suggestions-container ul li a {
+  display: inline-block !important;
+}
+
+.autocomplete-container .suggestions-container ul li img {
+  margin: 5px;
+}
