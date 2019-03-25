@@ -13,11 +13,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { PosComponent } from './sales/pos/pos.component';
 import { SalesViewComponent } from './sales/sales-view/sales-view.component';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import {LoginComponent} from './login/login.component';
+import { StockComponent } from './stock/stock.component';
 
 const routes: Route[] = [
-  {path: '', component: MainComponent},
+  {path: '', component: LoginComponent},
+  {path: 'Dashboard', component: MainComponent},
   {path: 'User/Create', component: CreateComponent},
   {path: 'User/UsersView', component: ViewComponent},
+  {path: 'Stock', component: StockComponent},
   {path: 'Sales/POS', component: PosComponent},
   {path: 'Sales/SalesView', component: SalesViewComponent}
 ]
@@ -30,7 +34,9 @@ const routes: Route[] = [
     MainComponent,
     ViewComponent,
     PosComponent,
-    SalesViewComponent
+    SalesViewComponent,
+    LoginComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,8 @@ const routes: Route[] = [
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -121,7 +121,7 @@
             </div>
             <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
             <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-            <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+            <a class="dropdown-item" href="" (click)="logout()"><i class="fas fa-power-off mr-2"></i>Logout</a>
           </div>
         </li>
       </ul>
@@ -148,23 +148,27 @@
             Menu
           </li>
           <li class="nav-item ">
-            <a class="nav-link active" routerLink="/" >
+            <a class="nav-link active" routerLink="/Dashboard" >
               <i class="fa fa-fw fa-chart-bar"></i>Dashboard <span class="badge badge-success">6</span></a>
           </li>
+          <!--<li class="nav-item ">-->
+            <!--<a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1"-->
+               <!--aria-controls="submenu-1">-->
+              <!--<i class="fa fa-fw fa-user-circle"></i>Users <span class="badge badge-success">6</span></a>-->
+            <!--<div id="submenu-1" class="collapse submenu" style="">-->
+              <!--<ul class="nav flex-column">-->
+                <!--<li class="nav-item">-->
+                  <!--<a class="nav-link" routerLink="/User/Create">Create</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                  <!--<a class="nav-link" routerLink="/User/UsersView">View</a>-->
+                <!--</li>-->
+              <!--</ul>-->
+            <!--</div>-->
+          <!--</li>-->
           <li class="nav-item ">
-            <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1"
-               aria-controls="submenu-1">
-              <i class="fa fa-fw fa-user-circle"></i>Users <span class="badge badge-success">6</span></a>
-            <div id="submenu-1" class="collapse submenu" style="">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/User/Create">Create</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/User/UsersView">View</a>
-                </li>
-              </ul>
-            </div>
+            <a class="nav-link active" routerLink="/Stock">
+              <i class="fa fa-fw fa-cubes"></i>Stock <span class="badge badge-success">6</span></a>
           </li>
           <li class="nav-item ">
             <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-sales"
