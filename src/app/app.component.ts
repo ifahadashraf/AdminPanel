@@ -8,6 +8,7 @@ import {StoreService} from './services/store.service';
 })
 export class AppComponent implements OnInit {
   title = 'AdminPanel';
+  secondTitle = 'MySecondTitle'
 
   constructor(public store: StoreService) {}
 
